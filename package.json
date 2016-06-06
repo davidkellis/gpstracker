@@ -5,6 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "express": "^4.13.4",
+    "lodash": "^4.13.1",
     "pug": "^2.0.0-alpha8"
   },
   "devDependencies": {},

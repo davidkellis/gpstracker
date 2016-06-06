@@ -7,16 +7,20 @@ html(lang="en")
     title GPS Tracker
     meta(name="description", content="GPS Tracker App")
 
-    link(rel="stylesheet", href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css")
-    link(rel="stylesheet", href="css/leaflet-routing-machine/leaflet-routing-machine.css")
-    script(src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js")
-    script(src="js/leaflet-routing-machine.js")
+    script(src="/js/jquery-3.0.0-rc1.js")
+    script(src="/js/lodash.js")
 
-    script(src="js/app.js")
-    link(rel="stylesheet", href="css/app.css")
+    link(rel="stylesheet", href="/css/leaflet.css")
+    link(rel="stylesheet", href="/css/leaflet-routing-machine/leaflet-routing-machine.css")
+    script(src="/js/leaflet.js")
+    script(src="/js/leaflet-routing-machine.js")
+
+    script(src="/js/app.js")
+    link(rel="stylesheet", href="/css/app.css")
 
   body
     #map
     script.
       window.mapboxAccessToken = "#{mapboxAccessToken}";
+      window.clientId = "#{clientId}";
       main()
