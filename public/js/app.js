@@ -41,13 +41,6 @@ function renderDirectionsFromUserToTarget(map, userCoords, targetCoords) {
   return [startMarker, endMarker, route];
 }
 
-function pollForClientCheckins() {
-  if (!window.pollForClientCheckinsInterval) {
-    window.pollForClientCheckinsInterval = setInterval(getClientCheckinsSince, 5000);
-  }
-  return window.pollForClientCheckinsInterval;
-}
-
 function renderLiveTrackingInfo(map) {
   var startMarker = L.marker([50.5, 30.5]);
   var endMarker = L.marker([50.5, 30.5]);
