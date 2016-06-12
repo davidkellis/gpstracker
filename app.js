@@ -16,7 +16,7 @@ app.get('/track/:clientId', (req, res) => {
   var clientId = req.params.clientId;
   console.log("tracking", clientId);
 
-  res.render('app', { clientId: clientId, mapboxAccessToken: config.mapbox.accessToken });
+  res.render('track/show', { clientId: clientId, mapboxAccessToken: config.mapbox.accessToken });
 });
 
 app.get('/precheckin', (req, res) => {
