@@ -27,24 +27,25 @@ function addMapPopup(map) {
 }
 
 // returns [startMarker, endMarker, route]
-function renderDirectionsFromUserToTarget(map, userCoords, targetCoords) {
-  var startMarker = L.marker(userCoords).addTo(map);
-  var endMarker = L.marker(targetCoords).addTo(map);
-
-  var route = L.Routing.control({
-    waypoints: [
-      startMarker.getLatLng(),
-      endMarker.getLatLng()
-    ]
-  }).addTo(map);
-
-  return [startMarker, endMarker, route];
-}
+// function renderDirectionsFromUserToTarget(map, userCoords, targetCoords) {
+//   var startMarker = L.marker(userCoords).addTo(map);
+//   var endMarker = L.marker(targetCoords).addTo(map);
+//
+//   var route = L.Routing.control({
+//     waypoints: [
+//       startMarker.getLatLng(),
+//       endMarker.getLatLng()
+//     ]
+//   }).addTo(map);
+//
+//   return [startMarker, endMarker, route];
+// }
 
 function renderLiveTrackingInfo(map) {
   var startMarker = L.marker([50.5, 30.5]);
   var endMarker = L.marker([50.5, 30.5]);
   var route = L.Routing.control({
+    serviceUrl: "https://router.project-osrm.org/route/v1",
     waypoints: [
       startMarker.getLatLng(),
       endMarker.getLatLng()
