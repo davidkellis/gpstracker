@@ -181,7 +181,9 @@ function getLocation() {
 
 function getClientCheckinsSince(timestamp) {
   console.log("getClientCheckinsSince", timestamp);
-  return jQuery.getJSON("/checkins/" + window.clientId + "/since/" + timestamp);
+  // since this app is served from {trackerProjectRootPath}/track/{deviceId},
+  // we can make a request to ../checkins/{deviceId}/since/{timestamp} to request {trackerProjectRootPath}/checkins/...
+  return jQuery.getJSON("../checkins/" + window.clientId + "/since/" + timestamp);
   // .done((checkins) => {
   //   console.log("checkins for " + window.clientId);
   //   console.log(checkins);
