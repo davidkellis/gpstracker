@@ -82,7 +82,7 @@ function updateTrackingInfo(map, startMarker, endMarker, route, lastPollingTimes
   var currentTimestamp = getTimestamp();
 
   return Promise.all([
-    getClientCheckinsSince(lastPollingTimestamp),
+    getDeviceCheckinsSince(lastPollingTimestamp),
     getLocation()
   ]).then((values) => {
     var [checkins, userCoords] = values;
@@ -173,13 +173,13 @@ function getLocation() {
   });
 }
 
-function getClientCheckinsSince(timestamp) {
-  console.log("getClientCheckinsSince", timestamp);
+function getDeviceCheckinsSince(timestamp) {
+  console.log("getDeviceCheckinsSince", timestamp);
   // since this app is served from {trackerProjectRootPath}/track/{deviceId},
   // we can make a request to ../checkins/{deviceId}/since/{timestamp} to request {trackerProjectRootPath}/checkins/...
-  return jQuery.getJSON("../checkins/" + window.clientId + "/since/" + timestamp);
+  return jQuery.getJSON("../checkins/" + window.deviceId + "/since/" + timestamp);
   // .done((checkins) => {
-  //   console.log("checkins for " + window.clientId);
+  //   console.log("checkins for " + window.deviceId);
   //   console.log(checkins);
   // });
 }
