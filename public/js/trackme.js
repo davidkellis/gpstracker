@@ -22,9 +22,20 @@ function getLocation() {
   console.log("getLocation");
   return new Promise((resolve, reject) => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        resolve([position.coords.latitude, position.coords.longitude]);
-      });
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          resolve([position.coords.latitude, position.coords.longitude]);
+        },
+        (err) => {
+          console.warn('ERROR(' + err.code + '): ' + err.message);
+          resolve(null);
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0
+        }
+      );
     } else {
       resolve(null);
     }
