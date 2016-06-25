@@ -58,10 +58,10 @@ function renderLiveTrackingInfo(map) {
     var recursiveUpdateTrackingInfo = () => {
       updateTrackingInfo(map, startMarker, endMarker, route, currentPollingTimestamp, currentUserCoords, currentTargetCoords).then((triple) => {
         [currentPollingTimestamp, currentUserCoords, currentTargetCoords] = triple;
-        setTimeout(recursiveUpdateTrackingInfo, 15000);
+        setTimeout(recursiveUpdateTrackingInfo, 10000);
       });
     }
-    setTimeout(recursiveUpdateTrackingInfo, 15000);
+    setTimeout(recursiveUpdateTrackingInfo, 10000);
   });
 }
 
