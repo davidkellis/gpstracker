@@ -1,6 +1,8 @@
 # gpstracker
 
-A proof of concept GPS tracker app.
+A proof of concept GPS tracker app intended to be used in conjunction with https://github.com/davidkellis/arduinotracker.
+
+This app is the server side location tracking app, and https://github.com/davidkellis/arduinotracker is the GPS coordinate updater app.
 
 ## Setup
 
