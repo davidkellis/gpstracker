@@ -160,18 +160,43 @@ function hideOrShowLayers(map, startMarker, endMarker, route, showStartMarker, s
   }
 }
 
+// function getLocation() {
+//   console.log("getLocation");
+//   return new Promise((resolve, reject) => {
+//     if (navigator.geolocation) {
+//       navigator.geolocation.getCurrentPosition((position) => {
+//         resolve([position.coords.latitude, position.coords.longitude]);
+//       });
+//     } else {
+//       resolve(null);
+//     }
+//   });
+// }
+
 function getLocation() {
   console.log("getLocation");
   return new Promise((resolve, reject) => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        resolve([position.coords.latitude, position.coords.longitude]);
-      });
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          resolve([position.coords.latitude, position.coords.longitude]);
+        },
+        (err) => {
+          console.warn('ERROR(' + err.code + '): ' + err.message);
+          resolve(null);
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 15000,
+          maximumAge: 2000
+        }
+      );
     } else {
       resolve(null);
     }
   });
 }
+
 
 function getDeviceCheckinsSince(timestamp) {
   console.log("getDeviceCheckinsSince", timestamp);

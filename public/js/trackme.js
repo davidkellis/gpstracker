@@ -32,8 +32,8 @@ function getLocation() {
         },
         {
           enableHighAccuracy: true,
-          timeout: 10000,
-          maximumAge: 0
+          timeout: 15000,
+          maximumAge: 2000
         }
       );
     } else {
